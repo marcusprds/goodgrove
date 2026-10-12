@@ -92,8 +92,8 @@
         const message = String(data.get('message') || '').trim();
         const subject = `Goodgrove Digital Inquiry — ${service}`;
         const body = `Hi Goodgrove Digital,\n\nMy name: ${name}\nMy email: ${email}\nI'm interested in: ${service}\n\nProject details:\n${message}\n\nThank you!`;
-        if (note) note.textContent = 'Your email app should open with a draft. Please press Send there to deliver your inquiry. If it does not open, email va.marcusparedes@gmail.com directly.';
-        window.location.href = `mailto:va.marcusparedes@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        if (note) note.textContent = 'Your email app should open with a draft. Please press Send there to deliver your inquiry. If it does not open, email goodgrovedigital@gmail.com directly.';
+        window.location.href = `mailto:goodgrovedigital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
     }
   }

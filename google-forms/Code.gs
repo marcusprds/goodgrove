@@ -17,7 +17,7 @@ const GOODGROVE = {
   formTitle: 'Goodgrove Digital — Project Inquiry',
   sheetId: '1S-P-ht72I6yw-7ar9HBcDtFcjvY09YEEvnCB-sQ1ixI',
   sheetTitle: 'Goodgrove Digital — Contact Inquiries',
-  contactEmail: 'va.marcusparedes@gmail.com',
+  contactEmail: 'goodgrovedigital@gmail.com',
   services: [
     'Website design & development',
     'AI & workflow automation',
