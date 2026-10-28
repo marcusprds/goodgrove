@@ -27,16 +27,6 @@
     }, { threshold: 0.09, rootMargin: '0px 0px -25px 0px' });
     revealItems.forEach((item) => observer.observe(item));
   } else { revealItems.forEach((item) => item.classList.add('is-visible')); }
-  // Motion-friendly value strip. CSS does the scrolling; JS only toggles pause.
-  const ticker = document.querySelector('[data-ticker]');
-  const tickerToggle = ticker?.querySelector('.ticker-toggle');
-  tickerToggle?.addEventListener('click', () => {
-    const paused = ticker.classList.toggle('is-paused');
-    tickerToggle.setAttribute('aria-pressed', String(paused));
-    tickerToggle.setAttribute('aria-label', paused ? 'Resume moving text' : 'Pause moving text');
-    tickerToggle.title = paused ? 'Resume moving text' : 'Pause moving text';
-  });
-
   const year = document.getElementById('footer-year');
   if (year) year.textContent = String(new Date().getFullYear());
 
