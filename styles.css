@@ -86,3 +86,47 @@
   .contact-panel{border-radius:18px}
   .contact-mail{font-size:12px}
 }
+
+
+/* --------------------------------------------------------------------------
+   A gentle, continuously scrolling value-carousel (responsive / Safari-safe).
+   The repeated track is seamless; hover, focus, button and reduced-motion stop it.
+   -------------------------------------------------------------------------- */
+.ticker{position:relative;isolation:isolate;display:flex;align-items:center;min-height:88px;padding:0;background:#dcebdc;border-block:1px solid #cfe2d0;overflow:hidden}
+.ticker-viewport{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%)}
+.ticker-track{display:flex;width:max-content;will-change:transform;animation:goodgrove-ticker 40s linear infinite}
+.ticker-set{display:flex;align-items:center;justify-content:space-around;gap:clamp(24px,3vw,58px);flex:0 0 auto;min-width:100vw;padding:0 clamp(24px,3vw,58px) 0 0}
+.ticker-phrase{flex:0 0 auto;white-space:nowrap;font-family:var(--heading);font-size:clamp(12px,1vw,15px);font-weight:800;letter-spacing:.14em;color:#3d7656}
+.ticker-separator{display:flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;color:#8cad94}
+.ticker-separator svg{width:20px;height:20px;display:block}
+@keyframes goodgrove-ticker{to{transform:translate3d(-50%,0,0)}}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track,.ticker.is-paused .ticker-track{animation-play-state:paused}
+.ticker-toggle{position:relative;z-index:2;margin:0 24px 0 2px;flex:0 0 34px;width:34px;height:34px;border:1px solid rgba(61,118,86,.22);border-radius:50%;background:#edf5ea;color:var(--forest);display:grid;place-items:center;transition:background .2s ease,transform .2s ease}
+.ticker-toggle:hover{background:#fff;transform:scale(1.06)}
+.ticker-toggle svg{width:14px;height:14px}
+.ticker-toggle .ticker-icon-play{display:none}
+.ticker.is-paused .ticker-toggle .ticker-icon-pause{display:none}
+.ticker.is-paused .ticker-toggle .ticker-icon-play{display:block}
+@media(max-width:760px){.ticker{min-height:66px;margin-top:0}.ticker-set{gap:25px;padding-right:25px}.ticker-phrase{font-size:12px;letter-spacing:.12em}.ticker-track{animation-duration:30s}.ticker-toggle{margin-right:13px;flex-basis:32px;width:32px;height:32px}}
+@media(max-width:375px){.ticker{min-height:62px}.ticker-toggle{margin-right:9px}.ticker-set{gap:19px;padding-right:19px}}
+
+/* Subtle interaction polish: opacity/transform only, no layout-moving animations. */
+@media(hover:hover) and (pointer:fine){
+  .service-card,.process-card{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease}
+  .service-card:hover,.process-card:hover{transform:translateY(-5px);box-shadow:0 19px 37px rgba(27,56,39,.095)}
+  .service-icon svg{transition:transform .3s ease}
+  .service-card:hover .service-icon svg{transform:rotate(-7deg) scale(1.08)}
+  .primary-nav a:not(.button){position:relative}
+  .primary-nav a:not(.button)::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:#83ae8e;transition:right .25s ease}
+  .primary-nav a:not(.button):hover::after{right:0}
+  .button .icon,.inline-link .icon{transition:transform .25s ease}
+  .button:hover .icon,.inline-link:hover .icon{transform:translate(2px,-2px)}
+}
+@media(min-width:761px){.hero-art{animation:goodgrove-hero-drift 8s ease-in-out infinite alternate}}
+@keyframes goodgrove-hero-drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(0,-8px,0)}}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track{animation:none!important;transform:none!important;will-change:auto!important}
+  .ticker-toggle{display:none!important}
+  .hero-art{animation:none!important}
+  .service-card,.process-card,.service-icon svg,.primary-nav a::after,.button .icon,.inline-link .icon{transition:none!important}
+}
